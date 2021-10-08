@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+	CSE 383 - Section C
+	Samuel Fisher
+        Homework Module 7
+        Dr. Johnson
+	October 7, 2021
+-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Homework Module 7 Part 2</title>
+    </head>
+
+    <body>
+        <script language="JavaScript">
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            document.write("<canvas id='myCanvas' width=" + width + " height=" + height + "></canvas>");
+
+            for (i = 0; i < 20; i++) {
+                var randX = Math.floor(Math.random() * (width - 80));
+                var randY = Math.floor(Math.random() * (height - 80));
+                var randAdditionOne = Math.floor(Math.random() * (70) + 10);
+                var randAdditionTwo = Math.floor(Math.random() * (70) + 10);
+                var red = Math.floor(Math.random() * 255);
+                var green = Math.floor(Math.random() * 255);
+                var blue = Math.floor(Math.random() * 255);
+
+                var canvas = document.getElementById("myCanvas");
+
+                if (canvas.getContext) {
+                    var ctx = canvas.getContext("2d");
+                    ctx.beginPath();
+                    ctx.moveTo(randX, randY);
+                    ctx.lineTo(randX, randY + randAdditionTwo);
+                    ctx.lineTo(randX + randAdditionOne, randY + randAdditionTwo);
+                    ctx.closePath();
+                    ctx.lineWidth = 2;
+                    ctx.fillStyle = "rgb(" + red + "," + green + "," + blue +")";
+                    ctx.fill();
+                }
+            }
+        </script>
+    </body>
+</html>
